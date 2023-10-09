@@ -14,7 +14,7 @@ app.use(express.json());
 
 mongoose
   .connect(
-    `mongodb+srv://${process.env.db_user_name}:${process.env.db_pass}@cluster0.vt0qgrn.mongodb.net/?retryWrites=true&w=majority`
+    `mongodb+srv://${process.env.db_user_name}:${process.env.db_pass}@cluster0.doqdeku.mongodb.net/real_state_mern?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("connected to mongodb");

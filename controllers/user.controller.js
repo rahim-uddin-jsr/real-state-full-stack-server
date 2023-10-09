@@ -1,3 +1,3 @@
-export const test = (req, res) => {
+export const userCollection = (req, res) => {
   res.send("running");
 };
