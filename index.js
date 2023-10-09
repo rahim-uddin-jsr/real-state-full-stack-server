@@ -1,10 +1,16 @@
-const express = require("express");
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js";
+
 const app = express();
-const cors = require("cors");
-const mongoose = require("mongoose");
-require("dotenv").config();
+console.log("object");
+dotenv.config();
 const port = process.env.PORT || 5000;
 app.use(cors());
+app.use(express.json());
 
 mongoose
   .connect(
@@ -17,10 +23,9 @@ mongoose
     console.log(err);
   });
 
-app.get("/", (req, res) => {
-  res.send("ok I am well!!");
-});
-
 app.listen(port, () => {
   console.log("server is running on port =>", port);
 });
+
+app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
